@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 import { ArrowRightIcon } from "@radix-ui/react-icons";
 
 import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
+import Button from "@/components/ui/Button";
 
 const BentoGrid = ({
   children,
@@ -65,7 +65,7 @@ const BentoCard = ({
         "pointer-events-none absolute bottom-0 flex w-full translate-y-10 transform-gpu flex-row items-center p-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100",
       )}
     >
-      <Button variant="ghost" asChild size="sm" className="pointer-events-auto">
+      <Button className="pointer-events-auto bg-transparent text-foreground hover:bg-foreground/10 px-3 py-1.5 rounded-md text-sm inline-flex items-center">
         <a href={href}>
           {cta}
           <ArrowRightIcon className="ml-2 h-4 w-4" />

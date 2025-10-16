@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
 
 // --- Data for the image accordion ---
-const accordionItems = [
+interface AccordionItemData {
+  id: number;
+  title: string;
+  imageUrl: string;
+}
+
+const accordionItems: AccordionItemData[] = [
   {
     id: 1,
     title: 'Voice Assistant',
@@ -30,7 +36,13 @@ const accordionItems = [
 ];
 
 // --- Accordion Item Component ---
-const AccordionItem = ({ item, isActive, onMouseEnter }) => {
+interface AccordionItemProps {
+  item: AccordionItemData;
+  isActive: boolean;
+  onMouseEnter: () => void;
+}
+
+const AccordionItem = ({ item, isActive, onMouseEnter }: AccordionItemProps) => {
   return (
     <div
       className={`
@@ -45,7 +57,11 @@ const AccordionItem = ({ item, isActive, onMouseEnter }) => {
         src={item.imageUrl}
         alt={item.title}
         className="absolute inset-0 w-full h-full object-cover"
-        onError={(e) => { e.target.onerror = null; e.target.src = 'https://placehold.co/400x450/2d3748/ffffff?text=Image+Error'; }}
+        onError={(e) => {
+          const target = e.currentTarget as HTMLImageElement;
+          target.onerror = null;
+          target.src = 'https://placehold.co/400x450/2d3748/ffffff?text=Image+Error';
+        }}
       />
       {/* Dark overlay for better text readability */}
       <div className="absolute inset-0 bg-black bg-opacity-40"></div>
@@ -74,7 +90,7 @@ const AccordionItem = ({ item, isActive, onMouseEnter }) => {
 export function LandingAccordionItem() {
   const [activeIndex, setActiveIndex] = useState(4);
 
-  const handleItemHover = (index) => {
+  const handleItemHover = (index: number) => {
     setActiveIndex(index);
   };
 

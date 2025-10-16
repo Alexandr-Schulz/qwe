@@ -11,6 +11,7 @@ export default function Bento() {
         <BentoGrid className="md:auto-rows-[20rem]">
           {/* Row 1 */}
           <BentoCard
+            id="ai-mentors"
             name="AI Mentors"
             className="md:col-span-2 xl:col-span-2"
             background={<div className="absolute inset-0 bg-gradient-to-br from-sky-100 to-blue-50 dark:from-sky-900/20 dark:to-blue-900/10" />}
@@ -20,6 +21,7 @@ export default function Bento() {
             cta="Learn more"
           />
           <BentoCard
+            id="ship-faster"
             name="Ship Faster"
             className="md:col-span-1 xl:col-span-1"
             background={<div className="absolute inset-0 bg-gradient-to-br from-violet-100 to-fuchsia-50 dark:from-violet-900/20 dark:to-fuchsia-900/10" />}
@@ -30,6 +32,7 @@ export default function Bento() {
           />
           {/* Row 2 */}
           <BentoCard
+            id="type-safe"
             name="Type-safe by Default"
             className="md:col-span-1 xl:col-span-1"
             background={<div className="absolute inset-0 bg-gradient-to-br from-emerald-100 to-teal-50 dark:from-emerald-900/20 dark:to-teal-900/10" />}
@@ -39,6 +42,7 @@ export default function Bento() {
             cta="Explore"
           />
           <BentoCard
+            id="security"
             name="Enterprise Security"
             className="md:col-span-1 xl:col-span-2"
             background={<div className="absolute inset-0 bg-gradient-to-br from-slate-100 to-stone-50 dark:from-slate-900/30 dark:to-stone-900/10" />}
@@ -48,6 +52,7 @@ export default function Bento() {
             cta="Security"
           />
           <BentoCard
+            id="polished-ux"
             name="Polished UX"
             className="md:col-span-2 xl:col-span-1"
             background={<div className="absolute inset-0 bg-gradient-to-br from-rose-100 to-pink-50 dark:from-rose-900/20 dark:to-pink-900/10" />}
@@ -58,6 +63,7 @@ export default function Bento() {
           />
           {/* Row 3 */}
           <BentoCard
+            id="workflow"
             name="Workflow Automation"
             className="md:col-span-2 xl:col-span-2"
             background={<div className="absolute inset-0 bg-gradient-to-br from-amber-100 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/10" />}

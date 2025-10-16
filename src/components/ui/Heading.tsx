@@ -1,9 +1,11 @@
+import type React from 'react';
+
 type Props = React.HTMLAttributes<HTMLHeadingElement> & {
   level?: 1 | 2 | 3 | 4 | 5 | 6;
 };
 
 export default function Heading({ level = 1, className = "", children, ...props }: Props) {
-  const Tag = (`h${level}` as unknown) as keyof JSX.IntrinsicElements;
+  const Tag = (`h${level}` as unknown) as keyof React.JSX.IntrinsicElements;
   const sizes: Record<number, string> = {
     1: "text-4xl font-bold",
     2: "text-3xl font-semibold",

@@ -35,7 +35,7 @@ const features = [
 // --- Custom Hook for Scroll Animation ---
 const useScrollAnimation = () => {
   const [inView, setInView] = useState(false);
-  const ref = useRef(null);
+  const ref = useRef<HTMLHeadingElement | HTMLParagraphElement | null>(null);
 
   useEffect(() => {
     const element = ref.current;
@@ -59,7 +59,7 @@ const useScrollAnimation = () => {
     return () => observer.disconnect();
   }, []);
 
-  return [ref, inView];
+  return [ref, inView] as const;
 };
 
 
@@ -71,14 +71,14 @@ const AnimatedHeader = () => {
     return (
         <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 
-                ref={headerRef}
+                ref={headerRef as React.RefObject<HTMLHeadingElement>}
                 className={`text-4xl md:text-5xl font-bold transition-all duration-700 ease-out text-gray-900 dark:text-white ${headerInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
                 style={{ transformStyle: 'preserve-3d' }}
             >
                 Uncover Insights, Expose Nothing
             </h2>
             <p 
-                ref={pRef}
+                ref={pRef as React.RefObject<HTMLParagraphElement>}
                 className={`text-lg text-gray-600 dark:text-gray-300 mt-4 transition-all duration-700 ease-out delay-200 ${pInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
                 style={{ transformStyle: 'preserve-3d' }}
             >
@@ -124,7 +124,7 @@ export function StickyFeatureSection() {
                         loading="lazy"
                         className="w-full h-auto rounded-lg shadow-lg object-cover"
                         // Simple fallback in case an image fails to load
-                        onError={(e) => { e.target.onerror = null; e.target.src = "https://placehold.co/600x400/cccccc/ffffff?text=Image+Not+Found"; }}
+                        onError={(e) => { const t = e.currentTarget as HTMLImageElement; t.onerror = null; t.src = "https://placehold.co/600x400/cccccc/ffffff?text=Image+Not+Found"; }}
                     />
                   </div>
                 </div>
